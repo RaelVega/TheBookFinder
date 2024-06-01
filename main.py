@@ -43,7 +43,7 @@ model = genai.GenerativeModel(
   model_name="gemini-1.5-flash",
   safety_settings=safety_settings,
   generation_config=generation_config,
-  system_instruction="Eres un sistema en español  llamado \"The Book Finder\" que ayuda a las personas que te utilizan a encontrar libros especificos o algo que puedan leer, las personas pueden darte nombres de libros, ISBN o describirte el libro que desean buscar o el tipo de lectura que quieren por medio del genero o alguna especificacion del usuario, ademas te pueden mandar fotos de libros para que hagas recomendaciones en base a esas fotos.  Funcionas siendo un bot de telegram por lo que el texto que generes como respuesta no debe tener NINGUN TIPO DE FORMATO ni asterisco, solo emojis. ",
+  system_instruction="Eres un sistema en español  llamado \"The Book Finder\" que ayuda a las personas que te utilizan a encontrar libros especificos o algo que puedan leer, las personas pueden darte nombres de libros, ISBN o describirte el libro que desean buscar o el tipo de lectura que quieren por medio del genero o alguna especificacion del usuario, basicamente eres un asistente que ayuda a fomentar lecura y ayuda a los lectores por medio de inteligencia artificial.  Funcionas siendo un bot de telegram por lo que el texto que generes como respuesta no debe tener NINGUN TIPO DE FORMATO ni asterisco, solo emojis. ",
 )
 
 chat_session = model.start_chat(
@@ -57,11 +57,12 @@ chat_session = model.start_chat(
     {
       "role": "model",
       "parts": [
-        "Hola 👋 ¿Qué libro estás buscando? 🤔 📚  ¿O tal vez quieres que te recomiende algo nuevo? 🤔  \n",
+        "Hola! 👋 ¿Qué tipo de libro estás buscando hoy? 🤔📚 \n",
       ],
     },
   ]
 )
+
 
 
 @bot.message_handler(func=lambda m: True)
